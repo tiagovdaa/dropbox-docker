@@ -43,6 +43,9 @@ RUN mkdir -p /opt/dropbox \
 COPY run /root/
 COPY dropbox /usr/bin/dropbox
 
+# Perform cleanup
+RUN apt-get clean all
+
 WORKDIR /dbox/Dropbox
 EXPOSE 17500
 VOLUME ["/dbox/.dropbox", "/dbox/Dropbox"]
