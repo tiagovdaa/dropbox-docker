@@ -2,6 +2,8 @@ FROM debian:sid
 MAINTAINER Tiago Almeida <tiagovdaa@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
+ARG UID=1000
+
 ### updating image and installing dependencies.
 RUN apt-get update && apt-get -y dist-upgrade \
     && apt-get install -y wget gnupg2 ca-certificates curl python3-gpg 
@@ -14,7 +16,7 @@ RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC91
 
 ### Creating service account
 RUN groupadd dropbox \
-	&& useradd -m -d /dbox -c "Dropbox Daemon Account" -s /usr/sbin/nologin -g dropbox dropbox
+	&& useradd -m -u ${UID} -d /dbox -c "Dropbox Daemon Account" -s /usr/sbin/nologin -g dropbox dropbox
 
 ### Dropbox needs to download it's proprietary daemon
 USER dropbox
