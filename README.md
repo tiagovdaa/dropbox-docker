@@ -70,6 +70,6 @@ docker exec -t -i dropbox dropbox help
 
 
 
-Created with ![heart](https://github.githubassets.com/images/icons/emoji/unicode/2764.png) using VScodium and Debian Linux.
+Created with ❤️VScodium and Debian Linux.
 
-Made in Brazil ![brazil](https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1f7.png)
+Made in Brazil 🇧🇷
