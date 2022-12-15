@@ -1,5 +1,5 @@
 FROM debian:sid
-MAINTAINER Tiago Almeida <tiagovdaa@gmail.com>
+LABEL maintainer="tiagovdaa@gmail.com"
 ENV DEBIAN_FRONTEND noninteractive
 
 ARG UID=1000
@@ -9,9 +9,9 @@ RUN apt-get update && apt-get -y dist-upgrade \
     && apt-get install -y wget gnupg2 ca-certificates curl python3-gpg 
 
 ### adding dropbox repo and installing.
-RUN echo 'deb https://linux.dropbox.com/debian sid main' > /etc/apt/sources.list.d/dropbox.list 
-RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E \
-    && apt-get update \
+COPY dropbox.asc /usr/share/keyrings/
+RUN echo 'deb [arch=i386,amd64 signed-by=/usr/share/keyrings/dropbox.asc] http://linux.dropbox.com/debian sid main' > /etc/apt/sources.list.d/dropbox.list
+RUN apt-get update \
     && apt-get install -y dropbox
 
 ### Creating service account
