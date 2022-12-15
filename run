@@ -28,7 +28,7 @@ usermod -u $DBOX_UID -g $DBOX_GID --non-unique dropbox > /dev/null 2>&1
 chown -R $DBOX_UID:$DBOX_GID /dbox
 
 # Change permissions on Dropbox folder
-chmod 755 /dbox/Dropbox
+chmod 700 /dbox/Dropbox
 
 #  Dropbox did not shutdown properly? Remove files.
 [ ! -e "/dbox/.dropbox/command_socket" ] || rm /dbox/.dropbox/command_socket
