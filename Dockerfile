@@ -1,12 +1,16 @@
 FROM debian:sid
 LABEL maintainer="tiagovdaa@gmail.com"
 ENV DEBIAN_FRONTEND noninteractive
+ENV TZ=America/Sao_Paulo
+ENV LC_ALL pt_BR.UTF-8
+ENV LANG pt_BR.UTF-8
+ENV LANGUAGE pt_BR.UTF-8
 
 ARG UID=1000
 
 ### updating image and installing dependencies.
 RUN apt-get update && apt-get -y dist-upgrade \
-    && apt-get install -y wget gnupg2 ca-certificates curl python3-gpg 
+    && apt-get install -y wget gnupg2 ca-certificates curl python3-gpg tzdata locales locales-all
 
 ### adding dropbox repo and installing.
 COPY dropbox.asc /usr/share/keyrings/
