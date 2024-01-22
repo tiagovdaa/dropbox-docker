@@ -1,7 +1,7 @@
-FROM debian:sid
+FROM debian:bookworm
 LABEL maintainer="tiagovdaa@gmail.com"
 ENV DEBIAN_FRONTEND noninteractive
-ENV TZ=America/Sao_Paulo
+ENV TZ=Europe/Lisbon
 ENV LC_ALL pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8
 ENV LANGUAGE pt_BR.UTF-8
