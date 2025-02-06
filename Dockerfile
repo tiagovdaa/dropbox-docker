@@ -14,7 +14,7 @@ RUN apt-get update && apt-get -y dist-upgrade \
 
 ### adding dropbox repo and installing.
 COPY dropbox.asc /usr/share/keyrings/
-RUN echo 'deb [arch=i386,amd64 signed-by=/usr/share/keyrings/dropbox.asc] http://linux.dropbox.com/debian sid main' > /etc/apt/sources.list.d/dropbox.list
+RUN echo 'deb [arch=i386,amd64 signed-by=/usr/share/keyrings/dropbox.asc] http://linux.dropbox.com/debian bookworm main' > /etc/apt/sources.list.d/dropbox.list
 RUN apt-get update \
     && apt-get install -y dropbox
 
