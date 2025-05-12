@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  dropbox:
+    image: tiagovdaa/dropbox-docker:latest
+    container_name: dropbox
+    restart: always
+    environment:
+      - DBOX_UID=1000
+      - DBOX_GID=1000
+      # Descomente a linha abaixo para debug
+      # - DBOX_DEBUG=true
+    volumes:
+      - /data/dbox:/dbox/.dropbox
+      - /data/Dropbox:/dbox/Dropbox
+    tty: true
+    stdin_open: true

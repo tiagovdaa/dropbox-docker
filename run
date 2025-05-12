@@ -66,4 +66,11 @@ fi
 
 echo "Starting dropboxd ($(cat /opt/dropbox/VERSION))..."
 umask 002
-exec su dropbox -s /bin/bash -c /opt/dropbox/dropboxd
+
+if [[ "$DBOX_DEBUG" == "true" ]]; then
+    echo "Running dropboxd in DEBUG (foreground) mode"
+    su dropbox -s /bin/bash -c "/opt/dropbox/dropboxd"
+else
+    exec su dropbox -s /bin/bash -c "/opt/dropbox/dropboxd"
+fi
+
