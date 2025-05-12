@@ -64,6 +64,14 @@ if [[ -z "$DBOX_SKIP_UPDATE" ]]; then
 	fi
 fi
 
+# Sanity check: Remove broken sockets and database files if exist
+rm -f /dbox/.dropbox/command_socket
+rm -f /dbox/.dropbox/iface_socket
+rm -f /dbox/.dropbox/unlink.db
+rm -f /dbox/.dropbox/dropbox.pid
+rm -f /dbox/.dropbox/instance.db
+
+
 echo "Starting dropboxd ($(cat /opt/dropbox/VERSION))..."
 umask 002
 
