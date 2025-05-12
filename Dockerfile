@@ -36,10 +36,10 @@ RUN mkdir -p /opt/dropbox \
 	&& mv /dbox/.dropbox-dist/VERSION /opt/dropbox/ \
 	&& rm -rf /dbox/.dropbox-dist \
 	&& install -dm0 /dbox/.dropbox-dist \
-	# Prevent dropbox to write update files
-	&& chmod u-w /dbox \
-	&& chmod o-w /tmp \
-	&& chmod g-w /tmp \
+#	# Prevent dropbox to write update files
+#	&& chmod u-w /dbox \
+#	&& chmod o-w /tmp \
+#	&& chmod g-w /tmp \
 	# Prepare for command line wrapper
 	&& mv /usr/bin/dropbox /usr/bin/dropbox-cli
 
@@ -52,5 +52,5 @@ RUN apt-get clean all
 
 WORKDIR /dbox/Dropbox
 EXPOSE 17500
-VOLUME ["/dbox/.dropbox", "/dbox/Dropbox"]
+VOLUME ["/dbox/"]
 ENTRYPOINT ["/root/run"]

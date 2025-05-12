@@ -22,7 +22,7 @@ docker run -d --restart=always --name=dropbox -v ${HOME}/dbox:/dbox tiagovdaa/dr
 ```
 
 ```
-docker run -d --restart=always --name=dropbox -v /data/dbox:/dbox/.dropbox -v /data/Dropbox/:/dbox/Dropbox tiagovdaa/dropbox-docker:latest
+docker run -d --restart=always --name=dropbox -v /data/dbox:/dbox/ tiagovdaa/dropbox-docker:latest
 ```
 
 ### Enable LAN Sync
